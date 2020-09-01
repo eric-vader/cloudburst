@@ -1,0 +1,11 @@
+name: cloudburst
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6
+  - cython
+  - numpy
+  - pip=20.0.2
+  - pyarrow=0.14.1
+  - pip:
+    - -r file:requirements.txt
