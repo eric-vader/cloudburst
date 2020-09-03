@@ -1,18 +1,16 @@
-# importing the required module 
+ 
+# Test code
+import random
 import timeit 
-  
-# code snippet to be executed only once 
-mysetup = "from math import sqrt"
-  
-# code snippet whose execution time is to be measured 
-mycode = ''' 
-def example(): 
-    mylist = [] 
-    for x in range(100): 
-        mylist.append(sqrt(x)) 
-'''
-  
-# timeit statement 
-print(timeit.timeit(setup = mysetup, 
-                    stmt = mycode, 
-                    number = 10000))
+sq = lambda _, x:x*x
+incr = lambda _, x:x+1
+rand_seq = random.sample(range(-2**50, 2**50), 100)
+f = lambda x: sq(None, incr(None, x))
+
+def test():
+    for x in rand_seq: 
+        f(x)
+
+for rand_seed in range(100):
+    random.seed(rand_seed)
+    print(timeit.timeit(test, number=10))
