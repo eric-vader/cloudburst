@@ -25,4 +25,5 @@ ax.yaxis.grid(True)
 
 # Save the figure and show
 plt.tight_layout()
-plt.savefig('my_expt.png')
+fig.set_size_inches(4, 3)
+plt.savefig('my_expt.png',dpi=400)
